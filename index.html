@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,6 +14,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #ffffff;
@@ -20,139 +25,323 @@
       line-height: 1.5;
     }
 
+    :root {
+      --pink: #e91e63;
+      --light-pink: #fff0f5;
+      --grey: #666666;
+      --border: #e9e9e9;
+    }
+
+    /* NAVIGATION */
+
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 28px 7%;
-      border-bottom: 1px solid #eeeeee;
+      padding: 22px 7%;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
 
     .logo {
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .pink {
-      color: #e91e63;
+      color: var(--pink);
     }
 
     nav a {
       text-decoration: none;
       color: #111111;
-      margin-left: 25px;
+      margin-left: 24px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     nav a:hover {
-      color: #e91e63;
+      color: var(--pink);
     }
 
+    /* HERO */
+
     .hero {
-      min-height: 82vh;
-      display: flex;
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
       align-items: center;
+      gap: 60px;
       padding: 80px 7%;
     }
 
     .hero-content {
-      max-width: 1000px;
+      max-width: 900px;
     }
 
     .eyebrow {
-      font-size: 16px;
-      font-weight: 700;
+      display: inline-block;
+      padding: 9px 15px;
+      background: var(--light-pink);
+      color: var(--pink);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
       margin-bottom: 25px;
-      color: #e91e63;
-      letter-spacing: 1px;
     }
 
     h1 {
-      font-size: clamp(60px, 10vw, 150px);
-      line-height: 0.9;
-      letter-spacing: -6px;
+      font-size: clamp(65px, 10vw, 145px);
+      line-height: 0.88;
+      letter-spacing: -7px;
       font-weight: 900;
       margin-bottom: 40px;
     }
 
     .intro {
-      font-size: clamp(24px, 3vw, 42px);
-      line-height: 1.15;
+      font-size: clamp(25px, 3vw, 43px);
+      line-height: 1.12;
       max-width: 850px;
-      font-weight: 700;
-    }
-
-    .intro span {
-      color: #e91e63;
+      font-weight: 800;
     }
 
     .small-text {
-      margin-top: 35px;
-      max-width: 650px;
+      margin-top: 30px;
+      max-width: 700px;
       font-size: 18px;
-      color: #555555;
+      color: var(--grey);
     }
 
+    /* PHOTO */
+
+    .hero-photo {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4 / 5;
+      margin-left: auto;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #fff0f5, #f8f8f8);
+      border: 1px solid #eeeeee;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      color: var(--pink);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    /* GENERAL SECTIONS */
+
     section {
-      padding: 100px 7%;
-      border-top: 1px solid #eeeeee;
+      padding: 110px 7%;
+      border-top: 1px solid var(--border);
     }
 
     .section-number {
-      color: #e91e63;
-      font-weight: 800;
+      color: var(--pink);
+      font-weight: 900;
       margin-bottom: 15px;
+      letter-spacing: 1px;
+      font-size: 13px;
     }
 
     h2 {
-      font-size: clamp(42px, 6vw, 80px);
-      line-height: 1;
-      margin-bottom: 35px;
-      letter-spacing: -3px;
+      font-size: clamp(45px, 6vw, 82px);
+      line-height: 0.98;
+      margin-bottom: 40px;
+      letter-spacing: -4px;
+      font-weight: 900;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: var(--light-pink);
+      border-radius: 25px;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .about-text {
       max-width: 800px;
       font-size: 24px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
+
+    /* WORK */
 
     .work-grid,
     .framework-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 18px;
+      margin-top: 50px;
     }
 
     .card {
       border: 1px solid #dddddd;
-      padding: 35px;
-      min-height: 180px;
-      transition: 0.2s;
+      padding: 38px;
+      min-height: 200px;
+      transition: all 0.25s ease;
+      background: #ffffff;
     }
 
     .card:hover {
-      border-color: #e91e63;
-      transform: translateY(-3px);
+      border-color: var(--pink);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(233,30,99,0.08);
+    }
+
+    .card-number {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 12px;
     }
 
     .card p {
-      color: #555555;
+      color: var(--grey);
+      font-size: 17px;
     }
 
+    /* PHILOSOPHY */
+
+    .philosophy {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .philosophy .section-number {
+      color: #ff5c96;
+    }
+
+    .philosophy h2 {
+      max-width: 1000px;
+    }
+
+    .quote {
+      max-width: 900px;
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .quote span {
+      color: #ff5c96;
+    }
+
+    /* IMPACT */
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 45px;
+    }
+
+    .impact {
+      padding: 30px;
+      background: var(--light-pink);
+      min-height: 150px;
+    }
+
+    .impact strong {
+      display: block;
+      font-size: 38px;
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+
+    .impact p {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      max-width: 900px;
+      margin: 0 auto 35px;
+    }
+
+    .contact-text {
+      color: var(--grey);
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--pink);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 30px;
+      font-weight: 800;
+      margin: 5px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    .button.secondary {
+      background: #111111;
+    }
+
+    /* FOOTER */
+
     footer {
-      padding: 60px 7%;
-      border-top: 1px solid #eeeeee;
+      padding: 45px 7%;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
+      color: var(--grey);
     }
 
     footer a {
@@ -162,85 +351,184 @@
     }
 
     footer a:hover {
-      color: #e91e63;
+      color: var(--pink);
     }
 
-    @media (max-width: 700px) {
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
       nav {
         align-items: flex-start;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
       }
 
       nav a {
         margin-left: 0;
-        margin-right: 15px;
-      }
-
-      h1 {
-        letter-spacing: -3px;
+        margin-right: 13px;
       }
 
       .hero {
-        padding-top: 60px;
+        grid-template-columns: 1fr;
+        padding-top: 65px;
+      }
+
+      .hero-photo {
+        margin: 0;
+        max-width: 330px;
+      }
+
+      h1 {
+        letter-spacing: -4px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
       .work-grid,
       .framework-grid {
         grid-template-columns: 1fr;
       }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
+    @media (max-width: 500px) {
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 6%;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      footer {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+    }
+
   </style>
+
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">Nasreen<span class="pink">Khan.</span></div>
+  <!-- NAVIGATION -->
 
-    <div>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#writing">Writing</a>
-      <a href="#frameworks">Frameworks</a>
-      <a href="#contact">Contact</a>
+  <nav>
+    <div class="logo">
+      Nasreen<span class="pink">Khan.</span>
     </div>
+
+```
+<div>
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#thinking">Thinking</a>
+  <a href="#frameworks">Frameworks</a>
+  <a href="#contact">Contact</a>
+</div>
+```
+
   </nav>
+
+  <!-- HERO -->
 
   <main>
 
-    <section class="hero">
-      <div class="hero-content">
+```
+<section class="hero">
 
-        <div class="eyebrow">
-          PEOPLE × STARTUPS × AI
-        </div>
+  <div class="hero-content">
 
-        <h1>
-          Nasreen<br>
-          <span class="pink">Khan.</span>
-        </h1>
+    <div class="eyebrow">
+      PEOPLE × STARTUPS × AI
+    </div>
 
-        <div class="intro">
-          I build <span>HR</span> before companies become famous.
-        </div>
+    <h1>
+      Nasreen<br>
+      <span class="pink">Khan.</span>
+    </h1>
 
-        <p class="small-text">
-          10+ years building people, talent and HR systems across
-          fast-moving startups — from 0 → 500 and beyond.
-          Now exploring what happens when <strong>HR × AI ×
-          first-principles thinking</strong> come together.
-        </p>
+    <div class="intro">
+      I build <span class="pink">HR</span> before companies become famous.
+    </div>
 
+    <p class="small-text">
+      10+ years building people, talent and HR systems across
+      fast-moving startups — from 0 → 500 and beyond.
+      Now exploring what happens when
+      <strong>HR × AI × first-principles thinking</strong>
+      come together.
+    </p>
+
+  </div>
+
+
+  <!-- YOUR HERO PHOTO -->
+
+  <div class="hero-photo">
+
+    <!--
+    AFTER YOU UPLOAD YOUR PHOTO TO GITHUB,
+    CHANGE THIS PLACEHOLDER TO:
+
+    <img src="nasreen.jpg" alt="Nasreen Khan">
+    -->
+
+    <div class="photo-placeholder">
+      YOUR PHOTO<br>
+      GOES HERE
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-number">01 — ABOUT</div>
+
+  <div class="about-layout">
+
+    <div class="about-photo">
+
+      <!--
+      YOUR SECOND PHOTO WILL GO HERE.
+
+      Example:
+      <img src="nasreen-about.jpg" alt="Nasreen Khan">
+      -->
+
+      <div class="photo-placeholder">
+        SECOND PHOTO<br>
+        GOES HERE
       </div>
-    </section>
+
+    </div>
 
 
-    <section id="about">
+    <div>
 
-      <div class="section-number">01 — ABOUT</div>
-
-      <h2>Build first.<br><span class="pink">Figure it out.</span></h2>
+      <h2>
+        Build first.<br>
+        <span class="pink">Figure it out.</span>
+      </h2>
 
       <p class="about-text">
         I’ve spent my career in places where there wasn't always
@@ -261,151 +549,270 @@
         </strong>
       </p>
 
-    </section>
+    </div>
+
+  </div>
+
+</section>
 
 
-    <section id="work">
+<!-- WORK -->
 
-      <div class="section-number">02 — WORK</div>
+<section id="work">
 
-      <h2>Places I've<br><span class="pink">built.</span></h2>
+  <div class="section-number">02 — WORK</div>
 
-      <div class="work-grid">
+  <h2>
+    Places I've<br>
+    <span class="pink">built.</span>
+  </h2>
 
-        <div class="card">
-          <h3>Xoxoday</h3>
-          <p>
-            SaaS · Employee Experience · Scaling · APAC
-          </p>
-        </div>
+  <div class="work-grid">
 
-        <div class="card">
-          <h3>Eloelo</h3>
-          <p>
-            Live Streaming · Social Gaming · 0 → 100
-          </p>
-        </div>
+    <div class="card">
+      <div class="card-number">01</div>
+      <h3>Xoxoday</h3>
+      <p>
+        SaaS · Employee Experience · Scaling · APAC
+      </p>
+    </div>
 
-        <div class="card">
-          <h3>STAN</h3>
-          <p>
-            Gaming · Talent · Fast-growth startup
-          </p>
-        </div>
+    <div class="card">
+      <div class="card-number">02</div>
+      <h3>Eloelo</h3>
+      <p>
+        Live Streaming · Social Gaming · 0 → 100
+      </p>
+    </div>
 
-        <div class="card">
-          <h3>BeBetta</h3>
-          <p>
-            Gaming · Rewards · Building HR from the ground up
-          </p>
-        </div>
+    <div class="card">
+      <div class="card-number">03</div>
+      <h3>STAN</h3>
+      <p>
+        Gaming · Talent · Fast-growth startup
+      </p>
+    </div>
 
-      </div>
+    <div class="card">
+      <div class="card-number">04</div>
+      <h3>BeBetta</h3>
+      <p>
+        Gaming · Rewards · Building HR from the ground up
+      </p>
+    </div>
 
-    </section>
+  </div>
 
-
-    <section id="writing">
-
-      <div class="section-number">03 — WRITING</div>
-
-      <h2>Things I'm<br><span class="pink">thinking about.</span></h2>
-
-      <div class="framework-grid">
-
-        <div class="card">
-          <h3>HR × AI</h3>
-          <p>
-            What changes when AI becomes part of how people teams work?
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>First Principles</h3>
-          <p>
-            Breaking complicated people problems down to what actually matters.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Hiring Beyond Brands</h3>
-          <p>
-            India's best talent doesn't always come with an IIT, IIM or MNC tag.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Startup HR</h3>
-          <p>
-            Building people systems when there is no playbook.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
+</section>
 
 
-    <section id="frameworks">
+<!-- IMPACT -->
 
-      <div class="section-number">04 — FRAMEWORKS</div>
+<section>
 
-      <h2>Ideas I<br><span class="pink">use.</span></h2>
+  <div class="section-number">03 — IMPACT</div>
 
-      <div class="framework-grid">
+  <h2>
+    Numbers tell<br>
+    <span class="pink">part of the story.</span>
+  </h2>
 
-        <div class="card">
-          <h3>ORBIT</h3>
-          <p>
-            A practical way to think about hiring.
-          </p>
-        </div>
+  <div class="impact-grid">
 
-        <div class="card">
-          <h3>2 × 5</h3>
-          <p>
-            My way of thinking about career growth.
-          </p>
-        </div>
+    <div class="impact">
+      <strong>10+</strong>
+      <p>Years across HR & People</p>
+    </div>
 
-        <div class="card">
-          <h3>Culture × Process</h3>
-          <p>
-            Culture is the heart. Process is the brain.
-          </p>
-        </div>
+    <div class="impact">
+      <strong>0→500</strong>
+      <p>Startup scaling experience</p>
+    </div>
 
-        <div class="card">
-          <h3>Feedback → Action</h3>
-          <p>
-            Learn without ego. Improve without jealousy.
-          </p>
-        </div>
+    <div class="impact">
+      <strong>2000+</strong>
+      <p>People hired across India</p>
+    </div>
 
-      </div>
+    <div class="impact">
+      <strong>0→1</strong>
+      <p>HR systems built from scratch</p>
+    </div>
 
-    </section>
+  </div>
+
+</section>
+
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy">
+
+  <div class="section-number">04 — PHILOSOPHY</div>
+
+  <h2>
+    HR is not<br>
+    <span class="pink">just HR.</span>
+  </h2>
+
+  <p class="quote">
+    Culture is the heart.
+    Process is the brain.
+    <span>Business is the reality.</span>
+  </p>
+
+  <br><br>
+
+  <p class="quote">
+    The best people strategy starts by asking:
+    <span>What problem are we actually trying to solve?</span>
+  </p>
+
+</section>
+
+
+<!-- THINKING -->
+
+<section id="thinking">
+
+  <div class="section-number">05 — THINKING</div>
+
+  <h2>
+    Things I'm<br>
+    <span class="pink">thinking about.</span>
+  </h2>
+
+  <div class="framework-grid">
+
+    <div class="card">
+      <h3>HR × AI</h3>
+      <p>
+        What changes when AI becomes part of how people teams work?
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>First Principles</h3>
+      <p>
+        Breaking complicated people problems down to what actually matters.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Hiring Beyond Brands</h3>
+      <p>
+        India's best talent doesn't always come with an IIT, IIM or MNC tag.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Startup HR</h3>
+      <p>
+        Building people systems when there is no playbook.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FRAMEWORKS -->
+
+<section id="frameworks">
+
+  <div class="section-number">06 — FRAMEWORKS</div>
+
+  <h2>
+    Ideas I<br>
+    <span class="pink">use.</span>
+  </h2>
+
+  <div class="framework-grid">
+
+    <div class="card">
+      <h3>ORBIT</h3>
+      <p>
+        A practical way to think about hiring.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2 × 5</h3>
+      <p>
+        My way of thinking about career growth.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Culture × Process</h3>
+      <p>
+        Culture is the heart. Process is the brain.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Feedback → Action</h3>
+      <p>
+        Learn without ego. Improve without jealousy.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+  <div class="section-number">07 — CONTACT</div>
+
+  <h2>
+    Let's build<br>
+    <span class="pink">something better.</span>
+  </h2>
+
+  <p class="contact-text">
+    HR · People · Talent · Startups · AI
+  </p>
+
+  <a
+    class="button"
+    href="https://www.linkedin.com/in/nasreenkhan3007/"
+    target="_blank">
+    Connect on LinkedIn →
+  </a>
+
+  <a
+    class="button secondary"
+    href="mailto:hello@nasreenkhan.me">
+    Say Hello →
+  </a>
+
+</section>
+```
 
   </main>
 
+  <!-- FOOTER -->
 
-  <footer id="contact">
+  <footer>
 
-    <div>
-      <strong>Nasreen<span class="pink">Khan.</span></strong>
-      <br>
-      People × Startups × AI
-    </div>
+```
+<div>
+  <strong>
+    Nasreen<span class="pink">Khan.</span>
+  </strong>
+  <br>
+  People × Startups × AI
+</div>
 
-    <div>
-      <a href="https://www.linkedin.com/in/nasreenkhan3007/" target="_blank">
-        LinkedIn
-      </a>
-      &nbsp;&nbsp;
-      <a href="mailto:hello@nasreenkhan.me">
-        Email
-      </a>
-    </div>
+<div>
+  © 2026 Nasreen Khan
+</div>
+```
 
   </footer>
 
