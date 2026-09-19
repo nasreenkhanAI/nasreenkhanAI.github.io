@@ -25,6 +25,56 @@
       line-height: 1.5;
     }
 
+    /* DESKTOP: FIXED LEFT + SCROLLING RIGHT */
+
+@media (min-width: 801px) {
+
+  body {
+    overflow: hidden;
+  }
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 34%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 55px 45px;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+
+  nav > div:last-child {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  nav a {
+    margin: 0 0 18px 0;
+    font-size: 15px;
+  }
+
+  main {
+    margin-left: 34%;
+    width: 66%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  footer {
+    margin-left: 34%;
+  }
+
+  .hero {
+    min-height: 100vh;
+  }
+}
+
     :root {
       --pink: #e91e63;
       --light-pink: #fff0f5;
@@ -117,6 +167,80 @@
       color: var(--grey);
     }
 
+  /* FIXED LEFT PROFILE */
+
+.left-profile {
+  width: 100%;
+}
+
+.left-photo {
+  width: 150px;
+  height: 185px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: var(--light-pink);
+}
+
+.left-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-name {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.left-title {
+  color: var(--grey);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.left-intro {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
+  max-width: 260px;
+  margin-bottom: 28px;
+}
+
+.left-links,
+.left-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-links {
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.left-links a,
+.left-nav a {
+  text-decoration: none;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.left-links a:hover,
+.left-nav a:hover {
+  color: var(--pink);
+}
+
+.left-nav {
+  gap: 12px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+}
+       
+    
     /* PHOTO */
 
     .hero-photo {
@@ -358,6 +482,45 @@
 
     @media (max-width: 800px) {
 
+        nav {
+    position: sticky;
+    width: 100%;
+    height: auto;
+    padding: 22px 6%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav > div:last-child {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+  }
+
+  nav a {
+    margin: 0 13px 0 0;
+  }
+
+  main {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  footer {
+    margin-left: 0;
+  }
+
+  .left-photo {
+    width: 100px;
+    height: 125px;
+  }
+
+  .left-name {
+    font-size: 28px;
+  }
+
       nav {
         align-items: flex-start;
         flex-direction: column;
@@ -428,20 +591,39 @@
   <!-- NAVIGATION -->
 
   <nav>
-    <div class="logo">
-      Nasreen<span class="pink">Khan.</span>
-    </div>
+   <div class="left-profile">
 
-```
-<div>
-  <a href="#about">About</a>
-  <a href="#work">Work</a>
-  <a href="#thinking">Thinking</a>
-  <a href="#frameworks">Frameworks</a>
-  <a href="#contact">Contact</a>
+  <div class="left-photo">
+    <img src="Nasreen - Formal Pic.png" alt="Nasreen Khan">
+  </div>
+
+  <div class="left-name">
+    Nasreen<span class="pink">Khan.</span>
+  </div>
+
+  <p class="left-title">
+    HR × People × Growth × AI
+  </p>
+
+  <p class="left-intro">
+    I build HR before companies become famous.
+  </p>
+
+  <div class="left-links">
+   <a href="https://x.com/NasreenKhan30" target="_blank">𝕏 Twitter</a>
+    <a href="mailto:nasreen90.khan@gmail.com">✉ Email</a>
+    <a href="https://www.linkedin.com/in/nasreenkhan3007/" target="_blank">LinkedIn →</a>
+  </div>
+
+  <div class="left-nav">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#thinking">Thinking</a>
+    <a href="#frameworks">Frameworks</a>
+    <a href="#contact">Contact</a>
+  </div>
+
 </div>
-```
-
   </nav>
 
   <!-- HERO -->
